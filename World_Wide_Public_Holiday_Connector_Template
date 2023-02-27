@@ -1,0 +1,213 @@
+{
+  "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+  "name": "Worldwide Public Holiday",
+  "id": "a282d105-25fd-4ed1-8499-5fa29dd64d7d",
+  "description": "Get public holiday information for a given year and country",
+  "icon": {
+    "contents": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9InV1aWQtM2M3ZTg0ZjktZTdlZC00ZWVmLWFkYzEtMTJjODRhYjJiN2MwIgoJIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIKCSBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6I0ZDNUQwRDt9Cjwvc3R5bGU+CjxnPgoJPHBvbHlnb24gY2xhc3M9InN0MCIgcG9pbnRzPSIzMDgsMjY1LjggMjg1LjIsMjcyLjYgMjk5LjcsMjkxLjQgMjk5LjEsMzE1LjIgMzIxLjUsMzA3LjMgMzQzLjksMzE1LjIgMzQzLjMsMjkxLjQgMzU3LjgsMjcyLjYgCgkJMzM0LjksMjY1LjggMzIxLjUsMjQ2LjIgCSIvPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTE4OC40LDI5MmgyNC4ydjI0LjJoLTI0LjJWMjkyTDE4OC40LDI5MnogTTE0MC4xLDI5MmgyNC4ydjI0LjJoLTI0LjJWMjkyTDE0MC4xLDI5MnogTTE0MC4xLDE5Ni44aDI0LjJWMjIxCgkJaC0yNC4yVjE5Ni44eiBNMTg4LjQsMjQ1LjJoMjQuMnYyNC4yaC0yNC4yVjI0NS4yeiBNMTQwLjEsMjQ1LjJoMjQuMnYyNC4yaC0yNC4yVjI0NS4yeiBNMjM2LjgsMjQ1LjJIMjYxdjI0LjJoLTI0LjJMMjM2LjgsMjQ1LjIKCQlMMjM2LjgsMjQ1LjJ6IE0yMzYuOCwxOTYuOEgyNjFWMjIxaC0yNC4yTDIzNi44LDE5Ni44TDIzNi44LDE5Ni44eiBNMjM2LjgsMjkySDI2MXYyNC4yaC0yNC4yTDIzNi44LDI5MkwyMzYuOCwyOTJ6IE0xODguNCwxOTYuOAoJCWgyNC4yVjIyMWgtMjQuMlYxOTYuOHogTTMzMy42LDE5Ni44aDI0LjJWMjIxaC0yNC4yVjE5Ni44eiBNMjg1LjIsMTk2LjhoMjQuMlYyMjFoLTI0LjJMMjg1LjIsMTk2LjhMMjg1LjIsMTk2Ljh6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDA2LjIsMTU5di0zNC43SDkwLjN2MjY0LjVsMzE1LjgsMEw0MDYuMiwxNTlMNDA2LjIsMTU5eiBNMzgyLDM2NC42SDExNC41VjE3Mi43SDM4MnY4OS41bDAsMFYzNjQuNgoJCUwzODIsMzY0LjZ6Ii8+CjwvZz4KPC9zdmc+Cg=="
+  },
+  "documentationRef": "https://docs.camunda.io/docs/components/modeler/web-modeler/connectors/available-connectors/rest/",
+  "category": {
+    "id": "connectors",
+    "name": "Connectors"
+  },
+  "appliesTo": [
+    "bpmn:Task"
+  ],
+  "elementType": {
+    "value": "bpmn:ServiceTask"
+  },
+  "groups": [
+    {
+      "id": "authentication",
+      "label": "Authentication"
+    },
+    {
+      "id": "endpoint",
+      "label": "HTTP Endpoint"
+    },
+    {
+      "id": "input",
+      "label": "Input"
+    },
+    {
+      "id": "timeout",
+      "label": "Connect Timeout"
+    },
+    {
+      "id": "output",
+      "label": "Response Mapping"
+    },
+    {
+      "id": "errors",
+      "label": "Error Handling"
+    }
+  ],
+  "properties": [
+    {
+      "type": "Hidden",
+      "value": "io.camunda:http-json:1",
+      "binding": {
+        "type": "zeebe:taskDefinition:type"
+      }
+    },
+    {
+      "label": "Type",
+      "id": "authenticationType",
+      "group": "authentication",
+      "description": "Choose the authentication type. Select 'None' if no authentication is necessary",
+      "value": "noAuth",
+      "type": "Hidden",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      }
+    },
+    {
+      "id": "method",
+      "label": "Method",
+      "group": "endpoint",
+      "type": "Hidden",
+      "value": "get",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "Year",
+      "description": "Define the year",
+      "group": "input",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "year"
+      },
+      "constraints": {
+        "pattern": {
+          "value": "(19[30][0-9]|20[0-9][0-9]|2100)",
+          "message": "Year must be between 1930 to 2099"
+        }
+      },
+      "optional": false
+    },
+    {
+      "label": "Countrycode",
+      "description": "You can find the available countrycodes <a href=\"https://date.nager.at/Country\" target=\"_blank\">here</a>",
+      "group": "input",
+      "type": "String",
+      "feel": "optional",
+      "constraints": {
+        "pattern": {
+          "value": "^[A-Z]{2,2}$",
+          "message": "The Countrycode consists of two letters"
+        }
+      },
+      "binding": {
+        "type": "zeebe:input",
+        "name": "countryCode"
+      },
+      "optional": false
+    },
+    {
+      "group": "input",
+      "type": "Hidden",
+      "value": "=\"https://date.nager.at/api/v3/publicholidays\"+\"/\"+year+\"/\"+countryCode",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "optional": true
+    },
+    {
+      "type": "Hidden",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "headers"
+      },
+      "optional": true
+    },
+    {
+      "label": "Connection Timeout",
+      "description": "Sets the timeout in seconds to establish a connection or 0 for an infinite timeout",
+      "group": "timeout",
+      "type": "String",
+      "value": "20",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "connectionTimeoutInSeconds"
+      },
+      "optional": true,
+      "constraints": {
+        "notEmpty": false,
+        "pattern": {
+          "value": "^([0-9]*$)|(secrets.*$)",
+          "message": "Must be timeout in seconds (default value is 20 seconds)"
+        }
+      }
+    },
+    {
+      "label": "Request Body",
+      "description": "JSON payload to send with the request",
+      "group": "input",
+      "type": "Text",
+      "feel": "required",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      },
+      "condition": {
+        "property": "method",
+        "oneOf": [
+          "post",
+          "put",
+          "patch",
+          "delete"
+        ]
+      },
+      "optional": true
+    },
+    {
+      "label": "Result Variable",
+      "description": "Name of variable to store the response in. Details in the <a href=\"https://docs.camunda.io/docs/components/connectors/use-connectors/#result-variable\" target=\"_blank\">documentation</a>",
+      "group": "output",
+      "type": "String",
+      "value": "publicHolidayList",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultVariable"
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables. Details in the <a href=\"https://docs.camunda.io/docs/components/connectors/use-connectors/#result-expression\" target=\"_blank\">documentation</a>",
+      "group": "output",
+      "type": "String",
+      "value": "={publicHolidayList: response.body}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      }
+    },
+    {
+      "label": "Error Expression",
+      "description": "Expression to handle errors. Details in the <a href=\"https://docs.camunda.io/docs/components/connectors/use-connectors/#bpmn-errors\" target=\"_blank\">documentation</a>",
+      "group": "errors",
+      "type": "Text",
+      "feel": "required",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "errorExpression"
+      }
+    }
+  ]
+}
