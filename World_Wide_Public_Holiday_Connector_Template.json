@@ -1,7 +1,7 @@
 {
   "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
   "name": "Worldwide Public Holiday",
-  "id": "a282d105-25fd-4ed1-8499-5fa29dd64d7d",
+  "id": "nager.api.connector.v1",
   "description": "Get public holiday information for a given year and country",
   "icon": {
     "contents": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9InV1aWQtM2M3ZTg0ZjktZTdlZC00ZWVmLWFkYzEtMTJjODRhYjJiN2MwIgoJIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIKCSBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6I0ZDNUQwRDt9Cjwvc3R5bGU+CjxnPgoJPHBvbHlnb24gY2xhc3M9InN0MCIgcG9pbnRzPSIzMDgsMjY1LjggMjg1LjIsMjcyLjYgMjk5LjcsMjkxLjQgMjk5LjEsMzE1LjIgMzIxLjUsMzA3LjMgMzQzLjksMzE1LjIgMzQzLjMsMjkxLjQgMzU3LjgsMjcyLjYgCgkJMzM0LjksMjY1LjggMzIxLjUsMjQ2LjIgCSIvPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTE4OC40LDI5MmgyNC4ydjI0LjJoLTI0LjJWMjkyTDE4OC40LDI5MnogTTE0MC4xLDI5MmgyNC4ydjI0LjJoLTI0LjJWMjkyTDE0MC4xLDI5MnogTTE0MC4xLDE5Ni44aDI0LjJWMjIxCgkJaC0yNC4yVjE5Ni44eiBNMTg4LjQsMjQ1LjJoMjQuMnYyNC4yaC0yNC4yVjI0NS4yeiBNMTQwLjEsMjQ1LjJoMjQuMnYyNC4yaC0yNC4yVjI0NS4yeiBNMjM2LjgsMjQ1LjJIMjYxdjI0LjJoLTI0LjJMMjM2LjgsMjQ1LjIKCQlMMjM2LjgsMjQ1LjJ6IE0yMzYuOCwxOTYuOEgyNjFWMjIxaC0yNC4yTDIzNi44LDE5Ni44TDIzNi44LDE5Ni44eiBNMjM2LjgsMjkySDI2MXYyNC4yaC0yNC4yTDIzNi44LDI5MkwyMzYuOCwyOTJ6IE0xODguNCwxOTYuOAoJCWgyNC4yVjIyMWgtMjQuMlYxOTYuOHogTTMzMy42LDE5Ni44aDI0LjJWMjIxaC0yNC4yVjE5Ni44eiBNMjg1LjIsMTk2LjhoMjQuMlYyMjFoLTI0LjJMMjg1LjIsMTk2LjhMMjg1LjIsMTk2Ljh6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDA2LjIsMTU5di0zNC43SDkwLjN2MjY0LjVsMzE1LjgsMEw0MDYuMiwxNTlMNDA2LjIsMTU5eiBNMzgyLDM2NC42SDExNC41VjE3Mi43SDM4MnY4OS41bDAsMFYzNjQuNgoJCUwzODIsMzY0LjZ6Ii8+CjwvZz4KPC9zdmc+Cg=="
@@ -12,7 +12,8 @@
     "name": "Connectors"
   },
   "appliesTo": [
-    "bpmn:Task"
+    "bpmn:Task",
+    "bpmn:ServiceTask"
   ],
   "elementType": {
     "value": "bpmn:ServiceTask"
@@ -86,7 +87,7 @@
       },
       "constraints": {
         "pattern": {
-          "value": "(19[30][0-9]|20[0-9][0-9]|2100)",
+          "value": "^(19[30][0-9]|20[0-9][0-9]|2100)$",
           "message": "Year must be between 1930 to 2099"
         }
       },
