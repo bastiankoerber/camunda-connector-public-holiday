@@ -87,7 +87,7 @@
       },
       "constraints": {
         "pattern": {
-          "value": "^(19[3-9][0-9]|20[0-9][0-9]|2099)$|(=.+),
+          "value": "^(19[3-9][0-9]|20[0-9][0-9]|2099)$|(=.+)",
           "message": "Year must be between 1930 to 2099"
         }
       },
@@ -101,7 +101,7 @@
       "feel": "optional",
       "constraints": {
         "pattern": {
-          "value": "^[A-Z]{2,2}$",
+          "value": "(^[A-Z]{2}$|=.+)",
           "message": "The Countrycode consists of two letters"
         }
       },
