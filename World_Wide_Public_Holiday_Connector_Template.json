@@ -80,7 +80,7 @@
       "description": "Define the year",
       "group": "input",
       "type": "String",
-      "feel": "optional",
+      "feel": "required",
       "binding": {
         "type": "zeebe:input",
         "name": "year"
